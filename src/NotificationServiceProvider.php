@@ -8,6 +8,9 @@ use App\Domain\Notification\Repositories\Contracts\NotificationRepositoryInterfa
 use App\Domain\Notification\Repositories\Contracts\NotificationTypeSettingRepositoryInterface;
 use App\Domain\Notification\Repositories\Eloquent\NotificationRepository;
 use App\Domain\Notification\Repositories\Eloquent\NotificationTypeSettingRepository;
+use App\Domain\Notification\Services\NotificationService;
+use App\Domain\Notification\Services\TypeNotificationDispatcher;
+use App\Support\Notifications\Contracts\NotificationDispatcher;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
@@ -19,6 +22,12 @@ class NotificationServiceProvider extends ServiceProvider
 
         $this->app->bind(NotificationRepositoryInterface::class, NotificationRepository::class);
         $this->app->bind(NotificationTypeSettingRepositoryInterface::class, NotificationTypeSettingRepository::class);
+
+        // Kernel seam: a packaged domain emits by type value and never imports
+        // this enum. `silverspoon/billing` calls it only when bound.
+        $this->app->bind(NotificationDispatcher::class, function ($app): NotificationDispatcher {
+            return new TypeNotificationDispatcher($app->make(NotificationService::class));
+        });
     }
 
     public function boot(): void
