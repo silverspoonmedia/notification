@@ -24,7 +24,7 @@ class NotificationServiceProvider extends ServiceProvider
         $this->app->bind(NotificationTypeSettingRepositoryInterface::class, NotificationTypeSettingRepository::class);
 
         // Kernel seam: a packaged domain emits by type value and never imports
-        // this enum. `silverspoon/billing` calls it only when bound.
+        // this enum. `silverspoonmedia/billing` calls it only when bound.
         $this->app->bind(NotificationDispatcher::class, function ($app): NotificationDispatcher {
             return new TypeNotificationDispatcher($app->make(NotificationService::class));
         });

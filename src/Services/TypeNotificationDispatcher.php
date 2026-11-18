@@ -9,7 +9,7 @@ use InvalidArgumentException;
 /**
  * Kernel contract adapter: string type in, domain enum out.
  *
- * `silverspoon/billing` owns *when* to notify but not the notification catalog,
+ * `silverspoonmedia/billing` owns *when* to notify but not the notification catalog,
  * so it emits a type value (`service_subscription_grace`). This adapter is the
  * single place that string becomes a {@see NotificationType} — an unknown value
  * fails loudly instead of silently dropping the bell.
