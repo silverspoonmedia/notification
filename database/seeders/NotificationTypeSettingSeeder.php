@@ -2,8 +2,8 @@
 
 namespace App\Domain\Notification\Database\Seeders;
 
-use App\Domain\Notification\Models\NotificationTypeSetting;
 use App\Domain\Identity\Models\Role;
+use App\Domain\Notification\Models\NotificationTypeSetting;
 use App\Domain\Notification\Notifications\NotificationType;
 use App\Domain\Notification\Repositories\Contracts\NotificationTypeSettingRepositoryInterface;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -61,7 +61,7 @@ class NotificationTypeSettingSeeder extends Seeder
         $setting->roles()->sync([]);
     }
 
-  /**
+    /**
      * @param  list<string>  $roleNames
      */
     private function broadcastToRoles(NotificationType $type, array $roleNames): void

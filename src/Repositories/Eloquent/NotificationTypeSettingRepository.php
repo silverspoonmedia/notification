@@ -2,8 +2,8 @@
 
 namespace App\Domain\Notification\Repositories\Eloquent;
 
-use App\Domain\Notification\Models\NotificationTypeSetting;
 use App\Domain\Identity\Models\Role;
+use App\Domain\Notification\Models\NotificationTypeSetting;
 use App\Domain\Notification\Notifications\NotificationType;
 use App\Domain\Notification\Repositories\Contracts\NotificationTypeSettingRepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;

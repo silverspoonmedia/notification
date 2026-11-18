@@ -2,9 +2,9 @@
 
 namespace App\Domain\Notification\Services;
 
+use App\Domain\Identity\Models\User;
 use App\Domain\Notification\Events\UserActivityNotificationReceived;
 use App\Domain\Notification\Models\ActivityNotification;
-use App\Domain\Identity\Models\User;
 use App\Domain\Notification\Notifications\NotificationType;
 use App\Domain\Notification\Repositories\Contracts\NotificationRepositoryInterface;
 use App\Domain\Notification\Repositories\Contracts\NotificationTypeSettingRepositoryInterface;

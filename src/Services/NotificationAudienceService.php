@@ -29,7 +29,7 @@ class NotificationAudienceService
         });
     }
 
-  /**
+    /**
      * @return array<string, mixed>
      */
     public function presentType(string $type): array

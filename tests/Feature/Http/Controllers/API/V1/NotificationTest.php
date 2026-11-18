@@ -2,13 +2,13 @@
 
 namespace App\Domain\Notification\Tests\Feature\Http\Controllers\API\V1;
 
-use App\Domain\Notification\Events\UserActivityNotificationReceived;
-use App\Domain\Notification\Models\ActivityNotification;
 use App\Domain\Identity\Models\Role;
 use App\Domain\Identity\Models\User;
+use App\Domain\Identity\Services\User\UserManagementService;
+use App\Domain\Notification\Events\UserActivityNotificationReceived;
+use App\Domain\Notification\Models\ActivityNotification;
 use App\Domain\Notification\Notifications\NotificationType;
 use App\Domain\Notification\Services\NotificationService;
-use App\Domain\Identity\Services\User\UserManagementService;
 use Illuminate\Broadcasting\BroadcastManager;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;

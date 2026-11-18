@@ -2,9 +2,9 @@
 
 namespace App\Domain\Notification\Repositories\Eloquent;
 
-use App\Domain\Notification\Models\ActivityNotification;
 use App\Domain\Identity\Models\Role;
 use App\Domain\Identity\Models\User;
+use App\Domain\Notification\Models\ActivityNotification;
 use App\Domain\Notification\Repositories\Contracts\NotificationRepositoryInterface;
 use Illuminate\Contracts\Database\Eloquent\Builder as BuilderContract;
 use Illuminate\Database\Eloquent\Builder;

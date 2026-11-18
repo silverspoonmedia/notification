@@ -4,7 +4,6 @@ namespace App\Domain\Notification\Models;
 
 use App\Domain\Identity\Models\Role;
 use App\Domain\Identity\Models\User;
-
 use App\Domain\Notification\Database\Factories\ActivityNotificationFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,9 +31,6 @@ class ActivityNotification extends Model
     /** @use HasFactory<ActivityNotificationFactory> */
     use HasFactory, HasUuids;
 
-    /**
-     * @return ActivityNotificationFactory
-     */
     protected static function newFactory(): ActivityNotificationFactory
     {
         return ActivityNotificationFactory::new();

@@ -2,8 +2,8 @@
 
 namespace App\Domain\Notification\Repositories\Contracts;
 
-use App\Domain\Notification\Models\ActivityNotification;
 use App\Domain\Identity\Models\User;
+use App\Domain\Notification\Models\ActivityNotification;
 use Illuminate\Support\Collection;
 
 interface NotificationRepositoryInterface

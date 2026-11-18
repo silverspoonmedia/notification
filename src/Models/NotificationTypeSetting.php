@@ -4,7 +4,6 @@ namespace App\Domain\Notification\Models;
 
 use App\Domain\Identity\Models\Role;
 use App\Domain\Identity\Models\User;
-
 use App\Domain\Notification\Database\Factories\NotificationTypeSettingFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,9 +15,6 @@ class NotificationTypeSetting extends Model
     /** @use HasFactory<NotificationTypeSettingFactory> */
     use HasFactory, HasUuids;
 
-    /**
-     * @return NotificationTypeSettingFactory
-     */
     protected static function newFactory(): NotificationTypeSettingFactory
     {
         return NotificationTypeSettingFactory::new();

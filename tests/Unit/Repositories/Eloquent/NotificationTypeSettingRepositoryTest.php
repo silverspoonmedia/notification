@@ -2,13 +2,14 @@
 
 namespace App\Domain\Notification\Tests\Unit\Repositories\Eloquent;
 
-use App\Domain\Notification\Models\NotificationTypeSetting;
 use App\Domain\Identity\Models\Role;
 use App\Domain\Identity\Models\User;
+use App\Domain\Notification\Models\NotificationTypeSetting;
 use App\Domain\Notification\Notifications\NotificationType;
 use App\Domain\Notification\Repositories\Eloquent\NotificationTypeSettingRepository;
 use Database\Seeders\RoleSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
 
 class NotificationTypeSettingRepositoryTest extends TestCase
@@ -99,7 +100,7 @@ class NotificationTypeSettingRepositoryTest extends TestCase
         // still return the same primitive audience without touching models.
         $second = (new NotificationTypeSettingRepository)->resolveAudience(NotificationType::UserCreated);
 
-        $cached = \Illuminate\Support\Facades\Cache::get('notification_type_settings.snapshot');
+        $cached = Cache::get('notification_type_settings.snapshot');
 
         $this->assertIsArray($cached, 'snapshot cache must hold a plain array');
         $this->assertIsArray($cached[NotificationType::UserCreated->value]['roles'] ?? null);
