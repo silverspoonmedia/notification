@@ -86,7 +86,7 @@ class NotificationAudienceService
             'type' => $enum->value,
             'label' => __($enum->messageKey()),
             'icon' => $enum->icon(),
-            'notify_subject_user' => (bool) ($setting?->notify_subject_user ?? false),
+            'notify_subject_user' => (bool) ($setting->notify_subject_user ?? false),
             'roles' => $setting?->roles->pluck('name')->values()->all() ?? $enum->defaultRoles(),
             'users' => $setting?->targetUsers->pluck('id')->values()->all() ?? [],
         ];
