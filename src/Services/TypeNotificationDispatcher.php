@@ -33,14 +33,32 @@ final class TypeNotificationDispatcher implements NotificationDispatcher
         $this->notifications->emit($resolved, $data, $roles, $users, $actionRoute, $actionParams);
     }
 
-    private function resolveType(string $type): NotificationType
+    /**
+     * Catalogue of every type this adapter can resolve: each value maps to the
+     * default audience roles (`[]` = personal, nobody by default). Lets a kernel
+     * consumer emit a type without naming this package's enum.
+     *
+     * @return array<string, list<string>>
+     */
+    public function types(): array
     {
+        $out = [];
+
         foreach (NotificationType::cases() as $case) {
-            if ($case->value === $type) {
-                return $case;
-            }
+            $out[$case->value] = $case->defaultRoles();
         }
 
-        throw new InvalidArgumentException("Unknown notification type [{$type}].");
+        return $out;
+    }
+
+    private function resolveType(string $type): NotificationType
+    {
+        $known = array_map(
+            static fn (NotificationType $case): string => $case->value,
+            NotificationType::cases(),
+        );
+
+        return NotificationType::tryFrom($type)
+            ?? throw new InvalidArgumentException("Unknown notification type [{$type}]. Known: ".implode(', ', $known).'.');
     }
 }
