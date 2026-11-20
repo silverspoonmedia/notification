@@ -13,6 +13,10 @@
         "laravel/framework": "^13.0",
         "silverspoonmedia/platform": "^1.0"
     },
+    "require-dev": {
+        "orchestra/testbench": "^11.0",
+        "phpunit/phpunit": "^12.5"
+    },
     "autoload": {
         "psr-4": {
             "App\\Domain\\Notification\\": "src/",
@@ -20,6 +24,11 @@
             "App\\Domain\\Notification\\Database\\Seeders\\": "database/seeders/",
             "App\\Domain\\Notification\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": [
+            "@php vendor/bin/phpunit"
+        ]
     },
     "extra": {
         "laravel": {

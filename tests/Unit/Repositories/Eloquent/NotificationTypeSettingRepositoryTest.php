@@ -2,20 +2,17 @@
 
 namespace App\Domain\Notification\Tests\Unit\Repositories\Eloquent;
 
+use App\Domain\Identity\Database\Seeders\RoleSeeder;
 use App\Domain\Identity\Models\Role;
 use App\Domain\Identity\Models\User;
 use App\Domain\Notification\Models\NotificationTypeSetting;
 use App\Domain\Notification\Notifications\NotificationType;
 use App\Domain\Notification\Repositories\Eloquent\NotificationTypeSettingRepository;
-use Database\Seeders\RoleSeeder;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Domain\Notification\Tests\TestCase;
 use Illuminate\Support\Facades\Cache;
-use Tests\TestCase;
 
 class NotificationTypeSettingRepositoryTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected function setUp(): void
     {
         parent::setUp();

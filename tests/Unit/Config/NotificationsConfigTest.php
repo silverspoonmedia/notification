@@ -2,7 +2,7 @@
 
 namespace App\Domain\Notification\Tests\Unit\Config;
 
-use Tests\TestCase;
+use App\Domain\Notification\Tests\TestCase;
 
 class NotificationsConfigTest extends TestCase
 {

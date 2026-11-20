@@ -5,19 +5,18 @@ namespace App\Domain\Notification\Tests\Feature\Http\Controllers\API\V1;
 use App\Domain\Identity\Models\Role;
 use App\Domain\Identity\Models\User;
 use App\Domain\Identity\Services\User\UserManagementService;
+use App\Domain\Notification\Database\Seeders\NotificationTypeSettingSeeder;
 use App\Domain\Notification\Events\UserActivityNotificationReceived;
 use App\Domain\Notification\Models\ActivityNotification;
 use App\Domain\Notification\Notifications\NotificationType;
 use App\Domain\Notification\Services\NotificationService;
+use App\Domain\Notification\Tests\TestCase;
+use App\Support\Testing\Concerns\SeedsRolesAndPermissions;
 use Illuminate\Broadcasting\BroadcastManager;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
-use Tests\Concerns\SeedsRolesAndPermissions;
-use Tests\TestCase;
 
 class NotificationTest extends TestCase
 {
-    use RefreshDatabase;
     use SeedsRolesAndPermissions;
 
     protected function setUp(): void
@@ -25,6 +24,10 @@ class NotificationTest extends TestCase
         parent::setUp();
 
         $this->seedRolesAndPermissions();
+
+        // The kernel trait seeds the ladder only (it may not name a sibling
+        // package); the per-type audience defaults are this package's own.
+        $this->seed(NotificationTypeSettingSeeder::class);
     }
 
     public function test_creating_a_user_fans_out_a_notification_to_root_and_admin(): void
