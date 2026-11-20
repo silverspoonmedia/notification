@@ -3,7 +3,7 @@
     "description": "Silverspoon core domain package: in-app notification engine (bell + history).",
     "type": "library",
     "license": "proprietary",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "homepage": "https://github.com/silverspoonmedia/notification",
     "support": {
         "source": "https://github.com/silverspoonmedia/notification"
