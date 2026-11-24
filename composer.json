@@ -3,7 +3,7 @@
     "description": "Silverspoon core domain package: in-app notification engine (bell + history).",
     "type": "library",
     "license": "proprietary",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "homepage": "https://github.com/silverspoonmedia/notification",
     "support": {
         "source": "https://github.com/silverspoonmedia/notification"
@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.4",
         "laravel/framework": "^13.0",
-        "silverspoonmedia/platform": "^1.1"
+        "silverspoonmedia/platform": "^1.2"
     },
     "require-dev": {
         "orchestra/testbench": "^11.0",
